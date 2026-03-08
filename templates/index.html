@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<title>Mental Health Detection</title>
+<style>
+body{
+font-family: Arial;
+text-align:center;
+background:#f4f6f7;
+}
+
+.container{
+width:400px;
+margin:auto;
+background:white;
+padding:20px;
+border-radius:10px;
+box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+input,select{
+width:90%;
+padding:8px;
+margin:8px;
+}
+
+button{
+padding:10px 20px;
+background:#3498db;
+color:white;
+border:none;
+border-radius:5px;
+cursor:pointer;
+}
+
+button:hover </style>
+
+</head>
+
+<body>
+
+<h2>Student Mental Health Detection</h2>
+
+<div class="container">
+
+<form id="predictionForm">
+
+<label>Gender</label> <select id="Gender">
+
+<option value="0">Male</option>
+<option value="1">Female</option>
+</select>
+
+<label>Age</label> <input type="number" id="Age">
+
+<label>Course</label>
+<select id="Course">
+<option value="0">Computer Science</option>
+<option value="1">Electronics</option>
+<option value="2">Mechanical</option>
+<option value="3">Civil</option>
+<option value="4">Other</option>
+</select>
+
+<label>Current Year</label> <input type="number" id="CurrenrtYear">
+
+<label>CGPA</label> <input type="number" id="CGPA">
+
+<label>Marital Status</label> <select id="MaritalStatus">
+
+<option value="0">Single</option>
+<option value="1">Married</option>
+</select>
+
+<button type="submit">Predict Risk</button>
+
+</form>
+
+<h3 id="result"></h3>
+
+</div>
+
+<script>
+
+document.getElementById("predictionForm").addEventListener("submit", async function(e){
+e.preventDefault();
+
+const data = {
+Gender: parseInt(document.getElementById("Gender").value),
+Age: parseInt(document.getElementById("Age").value),
+Course: parseInt(document.getElementById("Course").value),
+"Currenrt Year": parseInt(document.getElementById("CurrenrtYear").value),
+CGPA: parseInt(document.getElementById("CGPA").value),
+"Marital status": parseInt(document.getElementById("MaritalStatus").value)
+};
+
+const response = await fetch("/predict",{
+method:"POST",
+headers:{
+"Content-Type":"application/json"
+},
+body:JSON.stringify(data)
+});
+
+const result = await response.json();
+
+document.getElementById("result").innerText =
+"Mental Health Risk: " + result.prediction;
+
+});
+
+</script>
+
+</body>
+</html>
