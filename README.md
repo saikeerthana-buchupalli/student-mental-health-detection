@@ -1,4 +1,4 @@
-**STUDENT MENTAL HEALTH DETECTION USING MACHINE LEARNING**
+## STUDENT MENTAL HEALTH DETECTION USING MACHINE LEARNING
 This project predicts the mental health risk level of students using machine learning.
 ## Features
 - Machine Learning model using Random Forest
