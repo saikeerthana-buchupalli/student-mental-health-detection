@@ -32,9 +32,9 @@ student-mental-health-detection
 ```
 
 ## Run the Project
-*Install dependencies*
+### Install dependencies
 pip install flask scikit-learn pandas numpy
-*Run the app*
+### Run the app
 python app.py
-*Open in Browser*
+### Open in Browser
 http://127.0.0.1:5000
