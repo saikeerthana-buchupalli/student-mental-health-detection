@@ -21,11 +21,7 @@ This project predicts the mental health risk level of students using machine lea
 5. Result is displayed on the web page.
 
 *Project Structure*
-|
-|--- app.py
-|--- mental_health_model.pkl
-|--- templates
-   |---index.html
+student-mental-health-detection │ ├── app.py ├── mental_health_model.pkl └── templates └── index.html
 
 *Run the Project*
 Install dependencies :
